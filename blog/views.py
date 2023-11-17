@@ -61,8 +61,8 @@ def add(request):
 def search(request):
     if request.method=="POST":
         received_data=json.loads(request.body)
-        get_id=received_data["id"]
-        data=list(post.objects.filter(Q(id__icontains=get_id)).values())
+        get_title=received_data["title"]
+        data=list(post.objects.filter(Q(title__icontains=get_title)).values())
         return HttpResponse(json.dumps({"status":data}))
 
 
